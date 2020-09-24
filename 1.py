@@ -226,34 +226,37 @@
 # print(a.find(3))
 # print(a.find(5))
 
+#
+# class Solution(object):
+#     def permuteUnique(self, nums):
+#         """
+#         :type nums: List[int]
+#         :rtype: List[List[int]]
+#         """
+#
+#         answer = []
+#
+#         def dfs(start, length):
+#
+#             if length == start:
+#                 answer.append(list(nums))
+#
+#             for i in range(start, length):
+#
+#                 if i + 1 < length and nums[i] == nums[i + 1]:
+#                     continue
+#                 nums[i], nums[start] = nums[start], nums[i]
+#                 dfs(start + 1, length)
+#                 nums[i], nums[start] = nums[start], nums[i]
+#
+#         dfs(0, len(nums))
+#
+#         return answer
+#
+#
+# s = Solution()
+# r = s.permuteUnique([2,2,1,1])
+# print(r)
+#
+#
 
-class Solution(object):
-    def permuteUnique(self, nums):
-        """
-        :type nums: List[int]
-        :rtype: List[List[int]]
-        """
-
-        answer = []
-
-        def dfs(start, length):
-
-            if length == start:
-                answer.append(list(nums))
-
-            for i in range(start, length):
-
-                if i + 1 < length and nums[i] == nums[i + 1]:
-                    continue
-                nums[i], nums[start] = nums[start], nums[i]
-                dfs(start + 1, length)
-                nums[i], nums[start] = nums[start], nums[i]
-
-        dfs(0, len(nums))
-
-        return answer
-
-
-s = Solution()
-r = s.permuteUnique([2,2,1,1])
-print(r)
