@@ -19,6 +19,7 @@
 
 """
 
+
 # Definition for a binary tree node.
 # class TreeNode(object):
 #     def __init__(self, x):
@@ -56,3 +57,21 @@ class Solution(object):
             return l2
         else:
             return None
+
+
+"""
+我没有看见这是一个二叉搜索树，下面的代码是官方的答案
+"""
+
+
+class Solution:
+    def lowestCommonAncestor(self, root: TreeNode, p: TreeNode, q: TreeNode) -> TreeNode:
+        ancestor = root
+        while True:
+            if p.val < ancestor.val and q.val < ancestor.val:
+                ancestor = ancestor.left
+            elif p.val > ancestor.val and q.val > ancestor.val:
+                ancestor = ancestor.right
+            else:
+                break
+        return ancestor
