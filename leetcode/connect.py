@@ -30,7 +30,7 @@ struct Node {
 
 """
 
-"""
+
 # Definition for a Node.
 class Node(object):
     def __init__(self, val=0, left=None, right=None, next=None):
@@ -38,11 +38,9 @@ class Node(object):
         self.left = left
         self.right = right
         self.next = next
-"""
 
 
 # 我的方法
-
 class Solution(object):
     def connect(self, root):
         """
@@ -88,22 +86,23 @@ class Solution(object):
                 return None
 
             head = root
-            head_next = None
-            connect_head = None
-
-            while head and not head_next:
-                if head.left:
-                    head_next = head.left
-                    connect_head = head.left
-                elif head.right and not head_next:
-                    connect_head = head.right
-                    head_next = head.right
-
-                if head.left and head.right and head_next:
-                    head_next.next = head.right
-                    head_next = head_next.next
-
-                head = head.next
+            connect_head = head_next = Node(None)
+            """
+            这里做了一个优化
+            """
+            # while head and not head_next:
+            #     if head.left:
+            #         head_next = head.left
+            #         connect_head = head.left
+            #     elif head.right and not head_next:
+            #         connect_head = head.right
+            #         head_next = head.right
+            #
+            #     if head.left and head.right and head_next:
+            #         head_next.next = head.right
+            #         head_next = head_next.next
+            #
+            #     head = head.next
 
             while head:
                 if head.left:
@@ -116,6 +115,6 @@ class Solution(object):
 
                 head = head.next
 
-            self.connect(connect_head)
+            self.connect(connect_head.next)
 
             return root
