@@ -18,7 +18,6 @@
    15   7
 """
 
-
 # Definition for a binary tree node.
 
 
