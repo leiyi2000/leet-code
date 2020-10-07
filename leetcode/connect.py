@@ -75,46 +75,46 @@ class Solution(object):
     按照官方思路自己写的一个递归
     """
 
-    class Solution(object):
-        def connect(self, root):
-            """
-            :type root: Node
-            :rtype: Node
-            """
+class Solution_01(object):
+    def connect(self, root):
+        """
+        :type root: Node
+        :rtype: Node
+        """
 
-            if not root:
-                return None
+        if not root:
+            return None
 
-            head = root
-            connect_head = head_next = Node(None)
-            """
-            这里做了一个优化
-            """
-            # while head and not head_next:
-            #     if head.left:
-            #         head_next = head.left
-            #         connect_head = head.left
-            #     elif head.right and not head_next:
-            #         connect_head = head.right
-            #         head_next = head.right
-            #
-            #     if head.left and head.right and head_next:
-            #         head_next.next = head.right
-            #         head_next = head_next.next
-            #
-            #     head = head.next
+        head = root
+        connect_head = head_next = Node(None)
+        """
+        这里做了一个优化
+        """
+        # while head and not head_next:
+        #     if head.left:
+        #         head_next = head.left
+        #         connect_head = head.left
+        #     elif head.right and not head_next:
+        #         connect_head = head.right
+        #         head_next = head.right
+        #
+        #     if head.left and head.right and head_next:
+        #         head_next.next = head.right
+        #         head_next = head_next.next
+        #
+        #     head = head.next
 
-            while head:
-                if head.left:
-                    head_next.next = head.left
-                    head_next = head_next.next
+        while head:
+            if head.left:
+                head_next.next = head.left
+                head_next = head_next.next
 
-                if head.right:
-                    head_next.next = head.right
-                    head_next = head_next.next
+            if head.right:
+                head_next.next = head.right
+                head_next = head_next.next
 
-                head = head.next
+            head = head.next
 
-            self.connect(connect_head.next)
+        self.connect(connect_head.next)
 
-            return root
+        return root
