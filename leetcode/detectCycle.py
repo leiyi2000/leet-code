@@ -14,10 +14,11 @@
 
 
 # Definition for singly-linked list.
-# class ListNode(object):
-#     def __init__(self, x):
-#         self.val = x
-#         self.next = None
+class ListNode(object):
+    def __init__(self, x):
+        self.val = x
+        self.next = None
+
 
 class Solution(object):
     def detectCycle(self, head):
@@ -25,15 +26,11 @@ class Solution(object):
         :type head: ListNode
         :rtype: ListNode
         """
-
         arr = set()
 
-
         while head:
-
             if head in arr:
                 return head
             else:
                 arr.add(head)
-
             head = head.next
